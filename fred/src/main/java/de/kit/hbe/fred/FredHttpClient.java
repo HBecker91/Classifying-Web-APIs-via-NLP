@@ -35,7 +35,7 @@ public class FredHttpClient
       // URL url = new URL(FRED_BASE_URI); Only if needed
       Response response = null;
 
-      // Das sind alle Parameter der REST-Schnittstelle.
+      // Das sind alle Parameter der REST-Schnittstelle. Diese kannst du nach belieben anpassen. Falls "" geschrieben wird, wird der Default-Wert verwendet.
       List<Param> queryParamList = new ArrayList<>();
       queryParamList.add(new Param("text", "Hallo ich bin ein Text"));
       queryParamList.add(new Param("prefix", "fred:"));
@@ -52,6 +52,7 @@ public class FredHttpClient
       response = asyncHttpClient.prepareGet(FRED_BASE_URI).setHeader(HttpHeaders.CONTENT_TYPE, "application/rdf+json")
           .setQueryParams(queryParamList).execute().get();
 
+      // Hier erfolgt die Ausgabe des Bodys in der Kommandozeile, siehe Console in Eclipse
       System.out.println(response.getResponseBody());
 
       asyncHttpClient.close();
