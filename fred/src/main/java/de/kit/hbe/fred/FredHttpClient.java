@@ -52,7 +52,6 @@ public class FredHttpClient
       response = asyncHttpClient.prepareGet(FRED_BASE_URI).setHeader(HttpHeaders.CONTENT_TYPE, "application/rdf+json")
           .setQueryParams(queryParamList).execute().get();
 
-      // Hier erfolgt die Ausgabe des Bodys in der Kommandozeile, siehe Console in Eclipse
       System.out.println(response.getResponseBody());
 
       asyncHttpClient.close();
